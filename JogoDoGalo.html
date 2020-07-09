@@ -1,0 +1,153 @@
+<!DOCTYPE>
+ 
+<html>
+<head>
+<title>Jogo do Galo</title>
+<style>
+
+/*NavBar*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+
+/*Jogo Do Galo*/
+
+.jogo{
+width: 70px;
+height: 70px;
+background: #99ccff;
+font-size: 30px;
+color: #ff0000;
+cursor: pointer;
+}
+.colornav {
+ background-color:#99d6ff;
+ color:#000000;
+ font-size: 18px;
+}
+
+
+</style>
+ 
+</head>
+
+<body bgcolor="#99ffcc">
+<ul class="colornav">
+  <li><a class="colornav" href="JogoDoGalo.html">Jogo Do Galo</a></li>
+  <li><a class="colornav" href="JavaScript5e6.html">Calculadora</a></li>  
+</ul>
+
+<center>
+<br>
+<br>
+<br>
+<center><h3>Jogo Do Galo</h3></center>
+
+<table>
+ 
+<tr>
+  <td align="center"  id="jog11" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog12" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog13" class="jogo" onclick="joga(this.id);verifica();"></td>
+</tr>
+ 
+<tr>
+  <td align="center"  id="jog21" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog22" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog23" class="jogo" onclick="joga(this.id);verifica();"></td>
+</tr>
+ 
+<tr>
+  <td align="center"  id="jog31" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog32" class="jogo" onclick="joga(this.id);verifica();"></td>
+  <td align="center"  id="jog33" class="jogo" onclick="joga(this.id);verifica();"></td>
+</tr>
+ 
+</table>
+  <br>
+  <input type="button" name="limpar" value="Novo jogo" onclick="novo();" />
+</center>
+
+<script language="JavaScript" type="text/javascript">
+
+letra = "X";
+ 
+function joga(jogada){
+    selecionada = document.getElementById(jogada).innerHTML;
+    if (selecionada == "X" || selecionada == "O"){
+       alert("Jogada já ocupada!");
+    }
+    else{
+        document.getElementById(jogada).innerHTML = letra;
+        if (letra == "X"){
+            letra = "O";
+        }
+        else{
+            letra = "X";
+        }
+   }
+}
+ 
+function verifica(){
+   j11 = document.getElementById('jog11').innerHTML;
+   j12 = document.getElementById('jog12').innerHTML;
+   j13 = document.getElementById('jog13').innerHTML;
+   j21 = document.getElementById('jog21').innerHTML;
+   j22 = document.getElementById('jog22').innerHTML;
+   j23 = document.getElementById('jog23').innerHTML;
+   j31 = document.getElementById('jog31').innerHTML;
+   j32 = document.getElementById('jog32').innerHTML;
+   j33 = document.getElementById('jog33').innerHTML;
+   
+   if (((j11 != '') && (j12 != '') && (j13 != '') && (j11 == j12) && (j12 == j13)) || ((j11 != '') && (j22 != '') && (j33 != '') && (j11 == j22) && (j22 == j33)) || ((j11 != '') && (j21 != '') && (j31 != '') && (j11 == j21) && (j21 == j31)) || ((j21 != '') && (j22 != '') && (j23 != '') && (j21 == j22) && (j22 == j23)) || ((j31 != '') && (j32 != '') && (j33 != '') && (j31 == j32) && (j32 == j33)) || ((j12 != '') && (j22 != '') && (j32 != '') && (j12 == j22) && (j22 == j32)) || ((j13 != '') && (j23 != '') && (j33 != '') && (j13 == j23) && (j23 == j33)) || ((j31 != '') && (j22 != '') && (j13 != '') && (j31 == j22) && (j22 == j13))){
+      setTimeout(function(){ 
+        alert('Ganhou!');
+        novo();
+      }, 500);
+   }
+}
+ 
+function novo(){
+    for (i=1; i<4; i++){
+       for (j=1; j<4; j++){
+          nomejogada = 'jog' + i + j;
+          document.getElementById(nomejogada).innerHTML = '';
+          letra= "X";
+      
+      }
+   }
+}
+ 
+ 
+
+</script>
+</body>
+
+</html>

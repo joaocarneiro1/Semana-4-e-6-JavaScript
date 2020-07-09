@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora</title>
+</head>
+<style>
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+
+.colornav {
+ background-color:#99d6ff;
+ color:#000000;
+ font-size: 18px;
+}
+.cor {
+  background-color: #99d6ff;
+  width: 15%;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+</style>
+
+<body bgcolor="#99ffcc">
+<ul class="colornav">
+	<li><a class="colornav" href="JogoDoGalo.html">Jogo Do Galo</a></li>
+ 	<li><a class="colornav" href="JavaScript5e6.html">Calculadora</a></li>  
+</ul>
+
+
+	
+	<div class="container">
+		<div class="col-md-6">
+     
+			<center>
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="cor">
+	<h3>Calculadora</h3>
+	
+	<center>
+			<input type="text" size="2" id="n1" placeholder="">
+            <input type="text" size="2"  id="n2" placeholder="">
+            <br>
+            <br>
+            <input type="button" value="+" onClick="calcular(this)">
+            <input type="button" value="-" onClick="calcular(this)">
+            <input type="button" value="*" onClick="calcular(this)">
+            <input type="button" value="/" onClick="calcular(this)">
+
+	</center>
+</div>
+		</div>
+
+	</div>
+	
+<script language="JavaScript" type="text/javascript">
+function calcular(a){
+   
+   var operacao = a.value;
+   
+   var n1=parseFloat(document.getElementById("n1").value);
+   var n2=parseFloat(document.getElementById("n2").value);
+   
+   var calculo = eval*(n1+operacao+n2);
+
+   if(!isNaN(calculo)){
+      alert(calculo);
+   }else{
+    alert("Preencha os campos");
+   }
+  
+}
+
+</script>            
+
+</body>
+</html>
